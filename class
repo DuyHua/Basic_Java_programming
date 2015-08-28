@@ -1,0 +1,76 @@
+public class SinhVien {
+	String name;
+	int age;
+	double mathScore;
+	double writingScore;
+	private static SinhVien sv1;
+
+	public SinhVien(String name, int age, double mathScore, double writingScore) {
+		this.name = name;
+		this.age = age;
+		this.mathScore = mathScore;
+		this.writingScore = writingScore;
+	}
+
+	void display() {
+		System.out.println("Ho va ten: " + name);
+		System.out.println("Tuoi: " + age);
+		System.out.println("Diem Toan: " + mathScore);
+		System.out.println("Diem Van: " + writingScore);
+	}
+
+	void setScore(double mathScore, double writingScore) {
+		this.mathScore = mathScore;
+		this.writingScore = writingScore;
+	}
+
+	void averageScore() {
+		double a = (mathScore + writingScore) / 2;
+		System.out.println("Diem Trung Binh :" + a);
+	}
+
+	public static void main(String[] args) {
+		sv1 = new SinhVien("Hua Truong Duy", 27, 5.6, 6);
+		sv1.display();
+		sv1.setScore(1.5, 3);
+		sv1.display();
+		sv1.averageScore();
+	}
+
+}
+
+
+
+
+//------------------------------
+//Dung mang de luu vay dau cần đối tượng?
+import java.util.ArrayList;
+
+public class NhanVien {
+	String name;
+	String idCode;
+	String hireDate;
+	int salary;
+	private static NhanVien nv1;
+
+	NhanVien(String idCode, String name, String hireDate, int salary) {
+		this.name = name;
+		this.idCode = idCode;
+		this.hireDate = hireDate;
+		this.salary = salary;
+	}
+
+	void display() {
+		System.out.println("Ma: " + idCode);
+		System.out.println("Ten: " + name);
+		System.out.println("Ngay vao lam: " + hireDate);
+		System.out.println("Luong: " + salary);
+	}
+
+	public static void main(String[] args) {
+		arrayList nv1 = new NhanVien("1","Hua Truong Duy", "21/07/2015", 50000);
+		nv1.display();
+
+	}
+
+}
