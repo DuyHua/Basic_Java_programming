@@ -76,3 +76,109 @@ public class NhanVien {
 }
 
 //tham khảo lnk sau: http://android.vn/threads/bai-34-arraylist-trong-java-1.27864/
+
+
+
+
+class Teacher extends Person {
+	private String mySubject;
+
+	protected String getMySubject() {
+		return mySubject;
+	}
+
+	protected void setMySubject(String mySubject) {
+		this.mySubject = mySubject;
+	}
+
+	protected int getMySalary() {
+		return mySalary;
+	}
+
+	protected void setMySalary(int mySalary) {
+		this.mySalary = mySalary;
+	}
+
+	private int mySalary;
+
+	public Teacher(String name, int age, String gender, String subject,
+			int salary) {
+		super(name, age, gender);
+		mySubject = subject;
+		mySalary = salary;
+	}
+	//override constructor
+	public Teacher(String name, int age) {
+		this(name,age,"Male","Maths",5000000);
+	}
+	public String toString() {
+		return super.getMyName() + ", age: " + super.getMyAge() + ", gender: "
+				+ super.getMyGender() + ", subject: " + mySubject + ",salary: "
+				+ mySalary;
+	}
+}
+class Student extends Person {
+	private String myIdNum;
+	private double myGPA;
+
+	public Student(String name, int age, String gender, String idNum, double gpa) {
+		super(name, age, gender);
+		setMyIdNum(idNum);
+		setMyGPA(gpa);
+	}
+
+	public void setMyIdNum(String myIdNum) {
+		this.myIdNum = myIdNum;
+	}
+
+	public String getMyIdNum() {
+		return myIdNum;
+	}
+
+	public void setMyGPA(double myGPA) {
+		this.myGPA = myGPA;
+	}
+
+	public double getMyGPA() {
+		return myGPA;
+	}
+}
+class Person {
+	private String myName;
+	protected String getMyName() {
+		return myName;
+	}
+
+	protected void setMyName(String myName) {
+		this.myName = myName;
+	}
+
+	protected int getMyAge() {
+		return myAge;
+	}
+
+	protected void setMyAge(int myAge) {
+		this.myAge = myAge;
+	}
+
+	protected String getMyGender() {
+		return myGender;
+	}
+
+	protected void setMyGender(String myGender) {
+		this.myGender = myGender;
+	}
+
+	private int myAge;
+	private String myGender;
+
+	public Person(String name, int age, String gender) {
+		myName = name;
+		myAge = age;
+		myGender = gender;
+	}
+
+	public String toString() {
+		return myName + ", age: " + myAge + ", gender: " + myGender;
+	}
+}
