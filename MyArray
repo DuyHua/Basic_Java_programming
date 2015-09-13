@@ -1,0 +1,110 @@
+/*create package MyArray*/
+package MyArray;
+
+/*Create Class MyArray1*/
+class MyArray1 {
+	int MaxN, a[], n;
+	MyArray1(){
+		System.out.println("Create constructor");
+	}
+	
+	MyArray1(int[] arr) {
+		n = arr.length;
+		MaxN = 2 * n;
+		a = new int[MaxN];
+		for (int i = 0; i < n; i++) {
+			a[i] = arr[i];
+		}
+	}
+
+	void Output() {
+		for (int i = 0; i < n; i++) {
+			if (i < n - 1) {
+				System.out.println(a[i] + ",");
+			} else {
+				System.out.println(a[i] + '\n');
+			}
+		}
+	}
+
+	void Add(int x) {
+		if (n == MaxN) {
+			System.out.println("Array is full");
+		} else {
+			a[n] = x;
+			n++;
+		}
+	}
+
+	void Add(int x, int i) {
+		if (n == MaxN) {
+			System.out.println("Array is full");
+		} else {
+			for (int j = n; j > i; j--) {
+				a[j] = a[j - 1];
+			}
+			a[i] = x;
+			n++;
+		}
+	}
+}
+
+
+/*Create Class MyArray2*/
+package MyArray;
+
+public class MyArray2 extends MyArray1 {
+	MyArray2(int num) {
+		int[] arr = new int[num];
+		n = arr.length;
+		MaxN = 2 * n;
+		a = new int[MaxN];
+		for (int i = 0; i < n; i++) {
+			a[i] = arr[i];
+		}
+	}
+
+	void Add(int x) {
+		// int[] copyArray = new int[MaxN];
+		if (n == MaxN) {
+			System.out.println("Array is full");
+		} else {
+			for (int i = n; i > 0; i--) {
+				a[i] = a[i - 1];
+			}
+			a[0] = x;
+			n++;
+		}
+	}
+
+	void remove(int i) {
+		if (n <= i) {
+			System.out.println("Position cannot remove");
+		} else {
+			for (int j = i; j <= n - 2; j++) {
+				a[j] = a[j + 1];
+			}
+			a[n-1]=0;
+			n--;
+		}
+	}
+}
+
+
+/*Create Class Main*/
+package MyArray;
+
+public class Main {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		MyArray2 a = new MyArray2(5);
+		a.Add(5);
+		a.Output();
+		a.remove(3);
+		a.Output();
+	}
+}
